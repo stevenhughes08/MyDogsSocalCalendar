@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
+import EventDashboard from '../../features/event/eventDashboard/EventDashboard';
+import NavBar from '../../features/nav/navBar/NavBar';
 
 
 class App extends Component {
   render() {
     return (
       <div>
-        <h1>My Dog's Socail calendar</h1>
+        <NavBar/>
+        <h1>My Dog's Social calendar</h1>
+        <EventDashboard />
       </div>
     );
   }

@@ -3,14 +3,21 @@ import { Segment, Item, Icon, List, Button } from 'semantic-ui-react'
 import Event from './EventListAttendee'
 import EventListAttendee from './EventListAttendee';
 
+
 class EventListItem extends Component {
+    state = {image:""}
+    async componentDidMount() {
+        await fetch("https://dog.ceo/api/breeds/image/random")
+            .then(r => r.json())
+            .then(o => { this.setState({image:o.message})})
+    }
     render () {
         return (
                 <Segment.Group>
                    <Segment>
                      <Item.Group>
                        <Item>
-                         <Item.Image size="tiny" circular src="https://dog.ceo/api/breeds/image/random" />
+                         <Item.Image size="tiny" circular src={this.state.image} />
                          <Item.Content>
                            <Item.Header as="a">Event Title</Item.Header>
                            <Item.Description>

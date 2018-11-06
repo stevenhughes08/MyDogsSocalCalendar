@@ -4,8 +4,6 @@ import EventDashboard from '../../features/event/eventDashboard/EventDashboard';
 import NavBar from '../../features/nav/navBar/NavBar';
 
 
-
-
 class App extends Component {
   render() {
     return (

@@ -2,15 +2,14 @@ import React, { Component } from 'react'
 import { Segment, Item, Icon, List, Button } from 'semantic-ui-react'
 import EventListAttendee from './EventListAttendee'
 
-
 class EventListItem extends Component {
     // THIS IS THE API TO POPULATE DOG PICS 
-    state = {image:""}
-    async componentDidMount() {
-        await fetch("https://dog.ceo/api/breeds/image/random")
-            .then(r => r.json())
-            .then(o => { this.setState({image:o.message})})
-    }
+     state = {image:""}
+     async componentDidMount() {
+         await fetch("https://dog.ceo/api/breeds/image/random")
+             .then(r => r.json())
+             .then(o => { this.setState({image:o.message})})
+     }
 
 
     render () {
@@ -39,11 +38,14 @@ class EventListItem extends Component {
                    </Segment>
                    <Segment secondary>
                      <List horizontal>
-                       {/* todo: attendees go here */}
-                       <EventListAttendee/>
+                       {this.props.event.attendees.map((attendee) => (
+                            <EventListAttendee key={attendee.id} attendee={attendee}/>
+                       ))}
+                       
                      </List>
                    </Segment>
                    <Segment clearing>
+                    <span>{this.props.event.description}</span>
                      <Button as="a" color="teal" floated="right" content="View" />
                    </Segment>
                  </Segment.Group> 

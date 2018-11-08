@@ -6,49 +6,49 @@ import EventForm from '../eventForm/EventForm';
   const eventsDashboard = [
     {
       id: '1',
-      title: 'Trip to Tower of London',
+      title: 'WALK!!!!',
       date: '2018-03-27T11:00:00+00:00',
       category: 'culture',
       description:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sollicitudin ligula eu leo tincidunt, quis scelerisque magna dapibus. Sed eget ipsum vel arcu vehicula ullamcorper.',
       city: 'London, UK',
       venue: "Tower of London, St Katharine's & Wapping, London",
-      hostedBy: 'Bob',
-      hostPhotoURL: 'https://randomuser.me/api/portraits/men/20.jpg',
+      hostedBy: 'Mittens',
+      hostPhotoURL: '{this.state.image}',
       attendees: [
         {
           id: 'a',
-          name: 'Bob',
-          photoURL: 'https://randomuser.me/api/portraits/men/20.jpg'
+          name: 'Cleo',
+          photoURL: '{this.state.image}'
         },
         {
           id: 'b',
-          name: 'Tom',
-          photoURL: 'https://randomuser.me/api/portraits/men/22.jpg'
+          name: 'Howie',
+          photoURL: '{this.state.image}'
         }
       ]
     },
     {
       id: '2',
-      title: 'Trip to Punch and Judy Pub',
+      title: 'Sneak out the back fence and drink from the creek',
       date: '2018-03-28T14:00:00+00:00',
       category: 'drinks',
       description:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sollicitudin ligula eu leo tincidunt, quis scelerisque magna dapibus. Sed eget ipsum vel arcu vehicula ullamcorper.',
       city: 'London, UK',
-      venue: 'Punch & Judy, Henrietta Street, London, UK',
-      hostedBy: 'Tom',
-      hostPhotoURL: 'https://randomuser.me/api/portraits/men/22.jpg',
+      venue: 'The Creek Louisville, Ky',
+      hostedBy: 'Reaper',
+      hostPhotoURL: '{this.state.image}',
       attendees: [
         {
           id: 'b',
-          name: 'Tom',
-          photoURL: 'https://randomuser.me/api/portraits/men/22.jpg'
+          name: 'Garmen',
+          photoURL: '{this.state.image}'
         },
         {
           id: 'a',
-          name: 'Bob',
-          photoURL: 'https://randomuser.me/api/portraits/men/20.jpg'
+          name: 'Bender',
+          photoURL: '{this.state.image}'
         }
       ]
     }

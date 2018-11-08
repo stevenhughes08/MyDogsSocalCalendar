@@ -1,27 +1,31 @@
 import React, { Component } from 'react'
 import { Segment, Item, Icon, List, Button } from 'semantic-ui-react'
-import Event from './EventListAttendee'
-import EventListAttendee from './EventListAttendee';
+import EventListAttendee from './EventListAttendee'
 
 
 class EventListItem extends Component {
+    // THIS IS THE API TO POPULATE DOG PICS 
     state = {image:""}
     async componentDidMount() {
         await fetch("https://dog.ceo/api/breeds/image/random")
             .then(r => r.json())
             .then(o => { this.setState({image:o.message})})
     }
+
+
     render () {
+
+
         return (
                 <Segment.Group>
                    <Segment>
                      <Item.Group>
-                       <Item>
+                       <Item>{/**The below code calls the random fetched images */}
                          <Item.Image size="tiny" circular src={this.state.image} />
                          <Item.Content>
                            <Item.Header as="a">Event Title</Item.Header>
                            <Item.Description>
-                             Hosted by <a>hosted by</a>
+                             Hosted by <a>{this.props.event.hostedBy}</a>
                            </Item.Description>
                          </Item.Content>
                        </Item>
@@ -29,8 +33,8 @@ class EventListItem extends Component {
                    </Segment>
                    <Segment>
                      <span>
-                       <Icon name="clock" /> date |
-                       <Icon name="marker" /> time
+                       <Icon name="clock" /> {this.props.event.date} |
+                       <Icon name="marker" /> {this.props.venue}
                      </span>
                    </Segment>
                    <Segment secondary>

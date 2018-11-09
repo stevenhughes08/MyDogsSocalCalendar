@@ -11,10 +11,10 @@ class EventListItem extends Component {
              .then(o => { this.setState({image:o.message})})
      }
 
-
+  
     render () {
 
-
+   
         return (
                 <Segment.Group>
                    <Segment>
@@ -38,14 +38,14 @@ class EventListItem extends Component {
                    </Segment>
                    <Segment secondary>
                      <List horizontal>
-                       {this.props.event.attendees.map((attendee) => (
-                            <EventListAttendee key={attendee.id} attendee={attendee}/>
+                       {this.props.event.attendee && this.event.attendees.map((attendee) => (
+                            <EventListAttendee key={attendee.id} attendee={attendee} />
                        ))}
                        
                      </List>
                    </Segment>
                    <Segment clearing>
-                    <span>{this.props.event.description}</span>
+                    <span>{this.props.event.descritpion}</span>
                      <Button as="a" color="teal" floated="right" content="View" />
                    </Segment>
                  </Segment.Group> 

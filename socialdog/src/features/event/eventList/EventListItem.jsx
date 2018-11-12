@@ -19,7 +19,7 @@ class EventListItem extends Component {
           <Segment>
             <Item.Group>
               <Item>
-                <Item.Image size="tiny" circular src={event.hostPhotoURL} />
+                <Item.Image size="tiny" circular src={this.state.image} />
                 <Item.Content>
                   <Item.Header as="a">{event.title}</Item.Header>
                   <Item.Description>

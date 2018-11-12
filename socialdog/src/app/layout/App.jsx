@@ -16,8 +16,10 @@ class App extends Component {
   render() {
     return (
       <div>
+        <div>
       <NavBar/>
         <Container className="main">
+        <switch>
         <Route exact path='/' component={HomePage}/>
         <Route path='/events' component={EventDashboard}/>
         <Route path='/event/:id' component={EventDetailedPage}/>
@@ -25,8 +27,9 @@ class App extends Component {
         <Route path='/profile/:id' component={UserDetailPage}/>
         <Route path='/settings' component={SettingsDashboard}/>
         <Route path='/createEvent' component={EventForm}/>
-
+        </switch>
       </Container>
+      </div>
       </div>
     );
   }

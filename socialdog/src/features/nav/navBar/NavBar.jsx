@@ -33,6 +33,7 @@ class NavBar extends Component {
                             <img src="/assets/logo.png" alt="logo" />
                             My Dog's Social Calendar
                           </Menu.Item>
+                          <Menu.Item as={NavLink} to='/test' name="Test" />
                           <Menu.Item as={NavLink} to='/events' name="Events" />
                           {authenticated &&
                           <Menu.Item as={NavLink} to='/people' name="People" />}

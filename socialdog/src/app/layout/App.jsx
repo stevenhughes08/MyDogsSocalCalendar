@@ -8,6 +8,7 @@ import PeopleDashboard from '../../features/user/PeopleDashboard/PeopleDashboard
 import UserDetailPage from '../../features/user/UserDetailedPage.jsx/UserDetailedPage';
 import SettingsDashboard from '../../features/user/Settings/SettingsDashboard';
 import EventForm from '../../features/event/eventForm/EventForm';
+import HomePage from '../../features/home/HomePage';
 
 
 class App extends Component {
@@ -17,7 +18,7 @@ class App extends Component {
       <div>
       <NavBar/>
         <Container className="main">
-        <Route path='/' component={EventDashboard}/>
+        <Route path='/' component={HomePage}/>
         <Route path='/events' component={EventDashboard}/>
         <Route path='/event/:id' component={EventDetailedPage}/>
         <Route path='/people' component={PeopleDashboard}/>

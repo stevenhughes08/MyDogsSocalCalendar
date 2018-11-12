@@ -16,20 +16,32 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Route exact path='/' component={HomePage}/>
-        <div>
-      <NavBar/>
-        <Container className="main">
         <switch>
-        <Route path='/events' component={EventDashboard}/>
-        <Route path='/event/:id' component={EventDetailedPage}/>
-        <Route path='/people' component={PeopleDashboard}/>
-        <Route path='/profile/:id' component={UserDetailPage}/>
-        <Route path='/settings' component={SettingsDashboard}/>
-        <Route path='/createEvent' component={EventForm}/>
+        {/**Defaults to the home page */}
+        <Route exact path="/" component={HomePage}/>
         </switch>
-      </Container>
-      </div>
+       {/** the /(.+ makes the router look for anything in the switch ) */}
+      <Route path="/(.+)" render={() => (
+
+        <div>
+        <NavBar/>
+          <Container className="main">
+          <switch>
+          <Route path='/events' component={EventDashboard}/>
+          <Route path='/event/:id' component={EventDetailedPage}/>
+          <Route path='/people' component={PeopleDashboard}/>
+          <Route path='/profile/:id' component={UserDetailPage}/>
+          <Route path='/settings' component={SettingsDashboard}/>
+          <Route path='/createEvent' component={EventForm}/>
+          </switch>
+        </Container>
+        </div>
+
+      )}
+      
+      />
+
+        
       </div>
     );
   }

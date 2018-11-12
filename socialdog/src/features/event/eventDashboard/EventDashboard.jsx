@@ -105,6 +105,13 @@ handleUpdateEvent = (updatedEvent) => {
       this.setState({
         events: updatedEvents,
         isOpen: false
+      });
+    };
+
+    handleDeleteEvent = (eventId) => () => {
+      const updatedEvents = this.state.events.filter(e => e.id !== eventId);
+      this.setState({
+        events: updatedEvents
       })
     }
 
@@ -113,7 +120,7 @@ handleUpdateEvent = (updatedEvent) => {
       return (
             <Grid>
             <Grid.Column width={10}>
-              <EventList onEventOpen={this.handleOpenEvent} events={this.state.events} />
+              <EventList deleteEvent={this.handleDeleteEvent} onEventOpen={this.handleOpenEvent} events={this.state.events} />
               </Grid.Column>
                 <Grid.Column width={6}>
                     <Button onClick={this.handleFormOpen} positive content="Create Event" />

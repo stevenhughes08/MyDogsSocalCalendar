@@ -11,6 +11,8 @@ class EventListAttendee extends Component {
             .then(o => { this.setState({image:o.message})})
     }
     render () {
+
+        
         
         return (
             <div>

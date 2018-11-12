@@ -18,7 +18,7 @@ class App extends Component {
       <div>
       <NavBar/>
         <Container className="main">
-        <Route path='/' component={HomePage}/>
+        <Route exact path='/' component={HomePage}/>
         <Route path='/events' component={EventDashboard}/>
         <Route path='/event/:id' component={EventDetailedPage}/>
         <Route path='/people' component={PeopleDashboard}/>

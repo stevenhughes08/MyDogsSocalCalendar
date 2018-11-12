@@ -13,7 +13,7 @@ class EventListItem extends Component {
 
   
     render () {
-
+        const {event, onEventEdit}= this.props;
    
         return (
                 <Segment.Group>
@@ -24,7 +24,7 @@ class EventListItem extends Component {
                          <Item.Content>
                            <Item.Header as="a">Event Title</Item.Header>
                            <Item.Description>
-                             Hosted by <a>{this.props.event.hostedBy}</a>
+                             Hosted by <a>{event.hostedBy}</a>
                            </Item.Description>
                          </Item.Content>
                        </Item>
@@ -32,8 +32,8 @@ class EventListItem extends Component {
                    </Segment>
                    <Segment>
                      <span>
-                       <Icon name="clock" /> {this.props.event.date} |
-                       <Icon name="marker" /> {this.props.venue}
+                       <Icon name="clock" /> {event.date} |
+                       <Icon name="marker" /> {event.venue}
                      </span>
                    </Segment>
                    <Segment secondary>
@@ -46,7 +46,7 @@ class EventListItem extends Component {
                    </Segment>
                    <Segment clearing>
                     <span>{this.props.event.descritpion}</span>
-                     <Button as="a" color="teal" floated="right" content="View" />
+                     <Button onClick={onEventEdit(event)} as="a" color="teal" floated="right" content="View" />
                    </Segment>
                  </Segment.Group> 
         )

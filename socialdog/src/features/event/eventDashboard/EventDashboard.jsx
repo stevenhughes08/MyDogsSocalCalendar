@@ -59,19 +59,28 @@ import EventForm from '../eventForm/EventForm';
 class EventDashboard extends Component {
     state = {
       events: eventsDashboard,
-      isOpen: false
+      isOpen: false,
+      selectedEvent: null
     };
     handleFormOpen = () => {
       this.setState({
+        selectedEvent: null,
         isOpen: true
       });
     };
-
+//Handles cancels
     handleCancel = () => {
       this.setState({
         isOpen: false
       });
     };
+//Edit functions
+    handleEditEvent = (eventToUpdate) => () => {
+      this.setState({
+        selectedEvent: eventToUpdate,
+        isOpen: true
+      })
+    }
     //Creates Events
     handleCreateEvent = (newEvent) => {
       newEvent.id = cuid();
@@ -87,7 +96,7 @@ class EventDashboard extends Component {
       return (
           <Grid>
               <Grid.Column width={10}>
-                  <EventList events={this.state.events} />
+                  <EventList onEventEdit={this.handleEditEvent} events={this.state.events} />{/**Handles edit events */}
               </Grid.Column>
               <Grid.Column width={6}>
                   <Button onClick={this.handleFormOpen} positive content="Create Event" />

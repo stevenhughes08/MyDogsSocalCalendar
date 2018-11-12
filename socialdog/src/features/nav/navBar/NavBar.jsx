@@ -30,7 +30,7 @@ class NavBar extends Component {
                       <Menu inverted fixed="top">
                         <Container>
                           <Menu.Item as={NavLink} to='/' header>
-                            <img src="assets/logo.png" alt="logo" />
+                            <img src="/assets/logo.png" alt="logo" />
                             My Dog's Social Calendar
                           </Menu.Item>
                           <Menu.Item as={NavLink} to='/events' name="Events" />

@@ -38,6 +38,7 @@ class EventDashboard extends Component {
 
 //Update Event finds event updated and updates from the form. 
 handleUpdateEvent = (updatedEvent) => {
+    this.props.updateEvent(updatedEvent)
     this.setState({
       isOpen: false,
       selectedEvent: null

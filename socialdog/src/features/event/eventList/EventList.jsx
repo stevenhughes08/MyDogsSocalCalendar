@@ -13,7 +13,7 @@ class EventList extends Component {
                         event={event} 
                         onEventOpen={onEventOpen} 
                         deleteEvent={deleteEvent} 
-                        />/**EventEdits handler */
+                        />
                 ))}
             </div>
         )

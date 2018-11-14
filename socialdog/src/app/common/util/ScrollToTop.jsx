@@ -1,5 +1,6 @@
-import { Component } from 'react'
-import { withRouter } from 'react-router-dom'
+import { Component } from 'react';
+import { withRouter } from 'react-router-dom';
+//corrects issue with scrolling issue based on location data getting to top of page. 
 
 class ScrollToTop extends Component {
   componentDidUpdate(prevProps) {

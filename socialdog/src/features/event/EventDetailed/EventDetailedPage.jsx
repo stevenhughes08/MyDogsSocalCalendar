@@ -36,6 +36,7 @@ const EventDetailedPage = () => {
   return (
     <Grid>
       <Grid.Column width={10}>
+        <h1>Event Detail page</h1>
         <EventDetailedHeader event={event} />
         <EventDetailedInfo event={event} />
         <EventDetailedChat />

@@ -11,6 +11,18 @@ class EventListItem extends Component {
              .then(o => { this.setState({image:o.message})})
      }
 
+
+
+
+    //      await fetch('https://jsonplaceholder.typicode.com/todos/1')
+    //      .then(response => response.json())
+    //      .then(json => console.log(json))
+       
+    //  }
+
+
+     
+
   
      render() {
       const {event, onEventOpen, deleteEvent} = this.props

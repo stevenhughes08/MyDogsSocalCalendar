@@ -1,56 +1,16 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { List, Image } from 'semantic-ui-react';
 
-
-class PeopleDashboard extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      error: null,
-      isLoaded: false,
-      people: []
-    };
-  }
-
-  componentDidMount() {
-    fetch("https://jsonplaceholder.typicode.com/users")
-      .then(res => res.json())
-      .then(
-        (result) => {
-          this.setState({
-            isLoaded: true,
-            people: result.people
-          });
-        },
-        //This is the error handling portion. 
-        (error) => {
-          this.setState({
-            isLoaded: true,
-            error
-          });
-        }
-      )
-  }
-
-  render() {
-    const { error, isLoaded, people } = this.state;
-    if(error) {
-      return <div>Error: {error.message}</div>;
-    }else if (!isLoaded){
-      return <div>Loading...</div>;
-    }else{
-      return (
-        <ul>
-          {people.map(person => (
-          <li key={person.name}>
-          {person.name} {person.email} {person.address} 
-          </li>
-          ))}
-        </ul>
-      );
-    }
-  
+class PeopleDashboard extends Component {
+  render () {
+    return (
+      <List.Item>
+        <Image as='a' size='large' circular src='https://randomuser.me/api/portraits/women/42.jpg'/>
+      </List.Item>
+     
+      
+    )
   }
 }
-
 
 export default PeopleDashboard

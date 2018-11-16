@@ -10,5 +10,5 @@ To view this file download the file.
 # Navigate to the SocialDog folder 
 	#Run NPM Install - this will install all required dependancies. 
 
-# To view The project un NPM start.
+# To view The project run NPM start.
 	

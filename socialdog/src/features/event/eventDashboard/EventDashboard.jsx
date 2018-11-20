@@ -1,64 +1,16 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
 import { Grid, Button } from 'semantic-ui-react';
 import cuid from 'cuid';
 import EventList from '../eventList/EventList';
 import EventForm from '../eventForm/EventForm';
 
-  const eventsDashboard = [
-    {
-      id: '1',
-      title: 'WALK!!!!',
-      date: '2018-03-27',
-      category: 'culture',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sollicitudin ligula eu leo tincidunt, quis scelerisque magna dapibus. Sed eget ipsum vel arcu vehicula ullamcorper.',
-      city: 'London, UK',
-      venue: "Tower of London, St Katharine's & Wapping, London",
-      hostedBy: 'Mittens',
-      hostPhotoURL: '{this.state.image}',
-      attendees: [
-        {
-          id: 'a',
-          name: 'Cleo',
-          photoURL: '{this.state.image}'
-        },
-        {
-          id: 'b',
-          name: 'Howie',
-          photoURL: '{this.state.image}'
-        }
-      ]
-    },
-    {
-      id: '2',
-      title: 'Sneak out the back fence and drink from the creek',
-      date: '2018-03-28',
-      category: 'drinks',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sollicitudin ligula eu leo tincidunt, quis scelerisque magna dapibus. Sed eget ipsum vel arcu vehicula ullamcorper.',
-      city: 'London, UK',
-      venue: 'The Creek Louisville, Ky',
-      hostedBy: 'Reaper',
-      hostPhotoURL: '{this.state.image}',
-      attendees: [
-        {
-          id: 'b',
-          name: 'Garmen',
-          photoURL: '{this.state.image}'
-        },
-        {
-          id: 'a',
-          name: 'Bender',
-          photoURL: '{this.state.image}'
-        }
-      ]
-    }
-  ]
-  
+const mapState = (state) => ({
+  events: state.events
+})
 
 class EventDashboard extends Component {
     state = {
-      events: eventsDashboard,
       isOpen: false,
       selectedEvent: null
     };
@@ -117,10 +69,11 @@ handleUpdateEvent = (updatedEvent) => {
 
     render() {
       const {selectedEvent} = this.state;
+      const { events } = this.props;
       return (
             <Grid>
             <Grid.Column width={10}>
-              <EventList deleteEvent={this.handleDeleteEvent} onEventOpen={this.handleOpenEvent} events={this.state.events} />
+              <EventList deleteEvent={this.handleDeleteEvent} onEventOpen={this.handleOpenEvent} events={events} />
               </Grid.Column>
                 <Grid.Column width={6}>
                     <Button onClick={this.handleFormOpen} positive content="Create Event" />
@@ -141,4 +94,4 @@ handleUpdateEvent = (updatedEvent) => {
  
 
 
-export default EventDashboard
+export default connect(mapState)(EventDashboard);

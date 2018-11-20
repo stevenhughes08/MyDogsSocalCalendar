@@ -1,6 +1,9 @@
 import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import rootReducer from '../reducers/rootReducer';
+import { reactReduxFirebase, getFirebase } from 'react-redux-firebase'
+import {reduxFirestore, getFirestore } from 'redux-firestore'
+
 
 export const configureStore = (preloadedState) => {
     const middlewares = [];

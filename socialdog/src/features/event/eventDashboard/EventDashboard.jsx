@@ -4,10 +4,17 @@ import { Grid, Button } from 'semantic-ui-react';
 import cuid from 'cuid';
 import EventList from '../eventList/EventList';
 import EventForm from '../eventForm/EventForm';
+import { createEvent, deleteEvent, updateEvent } from '../eventActions';
 
 const mapState = (state) => ({
   events: state.events
 })
+
+const actions = {
+  createEvent,
+  deleteEvent,
+  updateEvent
+}
 
 class EventDashboard extends Component {
     state = {
@@ -29,15 +36,8 @@ class EventDashboard extends Component {
 
 //Update Event finds event updated and updates from the form. 
 handleUpdateEvent = (updatedEvent) => {
+    this.props.updateEvent(updatedEvent)
     this.setState({
-      events: this.state.events.map(event => {
-        if (event.id === updatedEvent.id) {
-          //OBject.assign clones our object copies updatedEvent and copies into an empty objects and replaces the existing event.  
-          return Object.assign({}, updatedEvent);
-        } else {
-          return event
-        }
-      }),
       isOpen: false,
       selectedEvent: null
     })
@@ -53,19 +53,15 @@ handleUpdateEvent = (updatedEvent) => {
     handleCreateEvent = (newEvent) => {
       newEvent.id = cuid();
       newEvent.hostPhotoURL = '/assets/user.png';
-      const updatedEvents = [...this.state.events, newEvent];
+      this.props.createEvent(newEvent);
       this.setState({
-        events: updatedEvents,
         isOpen: false
       });
     };
 
     handleDeleteEvent = (eventId) => () => {
-      const updatedEvents = this.state.events.filter(e => e.id !== eventId);
-      this.setState({
-        events: updatedEvents
-      })
-    }
+      this.props.deleteEvent(eventId);
+    };
 
     render() {
       const {selectedEvent} = this.state;
@@ -94,4 +90,4 @@ handleUpdateEvent = (updatedEvent) => {
  
 
 
-export default connect(mapState)(EventDashboard);
+export default connect(mapState, actions)(EventDashboard);
